@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 def print_list_integer(my_list=[]):
-      """
+    """
     Print a list of integers
     ...
 
@@ -12,5 +12,6 @@ def print_list_integer(my_list=[]):
     Return:
         None
     """
-   for item in my_list: 
-    print("{:d}".format(item))
+
+    for element in my_list:
+        print("{:d}".format(element))

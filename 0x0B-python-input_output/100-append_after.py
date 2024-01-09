@@ -1,20 +1,19 @@
 #!/usr/bin/python3
-"""Module containing function that modifies file"""
+'''
+Write a function that inserts a line of text to a file,
+after each line containing a specific string (see example):
+'''
 
 
 def append_after(filename="", search_string="", new_string=""):
-    """Inserts `new_string` into `filename` after lines containing
-         `search_string`.
-
-    Args:
-        filename (str): file to modify
-        search_string (str): string to look for in `filename`
-        new_string (str): string to insert after `search_string`
-    """
-    with open(filename, 'r+') as f:
-        lines = [line for line in f]
-        f.seek(0)
-        for idx, line in enumerate(lines):
+    '''
+    Appends after line with string
+    '''
+    append_text = ""
+    with open(filename, 'r', encoding='utf-8') as f:
+        for line in f:
+            append_text += line
             if search_string in line:
-                lines.insert(idx + 1, new_string)
-        f.writelines(lines)
+                append_text += new_string
+    with open(filename, 'w', encoding='utf-8') as f:
+        f.write(append_text)
